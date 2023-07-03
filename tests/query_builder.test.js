@@ -1,5 +1,5 @@
-import {Query} from "../src/Query";
-import {and, asc, equals} from "../src/DslQueryBuilder";
+import {Query} from "@/Query";
+import {and, asc, equals} from "@/DslQueryBuilder";
 import {describe,it,expect} from "vitest";
 describe('query builder', function () {
     it('should return empty query', function () {

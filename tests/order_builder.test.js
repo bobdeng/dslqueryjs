@@ -1,5 +1,5 @@
-import {asc, desc} from "../src/DslQueryBuilder";
 import {describe,it,expect} from "vitest";
+import {asc, desc} from "@/DslQueryBuilder";
 
 describe('order builder', function () {
     it('should be desc', function () {
