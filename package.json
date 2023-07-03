@@ -1,8 +1,14 @@
 {
   "name": "dslquery",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
+  "exports": {
+    ".": "./lib/main.js",
+    "./Query.js": "./src/Query.js",
+    "./DslQueryBuilder.js": "./src/DslQueryBuilder.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "test": "tests"
   },
@@ -26,5 +32,8 @@
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5"
-  }
+  },
+  "files": [
+    "src"
+  ]
 }
