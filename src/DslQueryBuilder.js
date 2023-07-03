@@ -111,11 +111,7 @@ class ComplexExpression {
     }
 
     build() {
-        let expressionsDSL = "";
-        if (this._expressions) {
-            expressionsDSL = this._expressions.map(it => it.build()).join("");
-        }
-        return `(${this._condition}${expressionsDSL})`
+        return `(${this._condition}${(this._expressions?.map(it => it.build()).join(""))})`
     }
 
     static or(expressions) {
