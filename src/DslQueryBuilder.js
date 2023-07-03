@@ -69,6 +69,14 @@ export function notnull(name) {
     return new SingleExpression("notnull", name);
 }
 
+export function desc(name) {
+    return new Sort().desc(name);
+}
+
+export function asc(name) {
+    return new Sort().asc(name);
+}
+
 class SingleExpression {
     _operator;
     _name;
@@ -112,5 +120,37 @@ class ComplexExpression {
 
     static or(expressions) {
         return new ComplexExpression("or", expressions);
+    }
+}
+
+class Sort {
+    _fields = []
+
+    desc(name) {
+        this._fields.push(new SoftField(name, "desc"))
+        return this;
+    }
+
+    asc(name) {
+        this._fields.push(new SoftField(name, "asc"))
+        return this;
+    }
+
+    build() {
+        return this._fields.map(it => it.build()).join(",")
+    }
+}
+
+class SoftField {
+    _name;
+    _direction;
+
+    constructor(name, direction) {
+        this._name = name;
+        this._direction = direction;
+    }
+
+    build() {
+        return `${this._name} ${this._direction}`
     }
 }
