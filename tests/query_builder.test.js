@@ -1,6 +1,6 @@
 import {Query} from "../src/Query";
 import {and, asc, equals} from "../src/DslQueryBuilder";
-
+import {describe,it,expect} from "vitest";
 describe('query builder', function () {
     it('should return empty query', function () {
         let query = new Query();

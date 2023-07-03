@@ -8,7 +8,7 @@ import {
     notEquals, notIn, notnull,
     or, startsWith
 } from "../src/DslQueryBuilder";
-
+import {describe,it,expect} from "vitest";
 describe('dsl builder test', function () {
     it('should build empty with and', function () {
         expect(and().build()).toEqual("(and)")

@@ -17,11 +17,14 @@
   ],
   "type": "module",
   "dependencies": {
-    "jest": "29.5.0",
-    "lodash": "^4.17.21",
     "rollup": "^3.26.0",
+    "vitest": "^0.32.4",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5"
   },
   "author": "bobdeng",
   "license": "ISC",
@@ -29,10 +32,6 @@
     "url": "https://github.com/bobdeng/dslqueryjs/issues"
   },
   "homepage": "https://github.com/bobdeng/dslqueryjs#readme",
-  "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5"
-  },
   "files": [
     "dist"
   ]

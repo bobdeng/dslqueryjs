@@ -1,9 +1,7 @@
 import {asc, desc} from "../src/DslQueryBuilder";
-import * as abc from '../dist/index'
+import {describe,it,expect} from "vitest";
+
 describe('order builder', function () {
-    it('should ', function () {
-        console.log(abc)
-    });
     it('should be desc', function () {
         expect(desc("name").build()).toEqual("name desc")
     });
