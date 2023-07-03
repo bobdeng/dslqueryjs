@@ -1,16 +1,11 @@
 {
   "name": "dslquery",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "description": "",
-  "main": "index.js",
-  "exports": {
-    ".": "./lib/main.js",
-    "./Query.js": "./src/Query.js",
-    "./DslQueryBuilder.js": "./src/DslQueryBuilder.js",
-    "./package.json": "./package.json"
-  },
+  "main": "./dist/library.js",
   "scripts": {
-    "test": "tests"
+    "test": "tests",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,7 +16,10 @@
     "query"
   ],
   "dependencies": {
-    "jest": "29.5.0"
+    "jest": "29.5.0",
+    "lodash": "^4.17.21",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
   },
   "author": "bobdeng",
   "license": "ISC",
@@ -34,6 +32,6 @@
     "@babel/preset-env": "^7.22.5"
   },
   "files": [
-    "src"
+    "dist"
   ]
 }
