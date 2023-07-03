@@ -1,0 +1,30 @@
+{
+  "name": "dsalquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bobdeng/dslqueryjs.git"
+  },
+  "keywords": [
+    "dsl",
+    "query"
+  ],
+  "dependencies": {
+    "jest": "29.5.0"
+  },
+  "author": "bobdeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobdeng/dslqueryjs/issues"
+  },
+  "homepage": "https://github.com/bobdeng/dslqueryjs#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5"
+  }
+}
