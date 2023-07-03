@@ -1,5 +1,2 @@
-import * as Query from "./Query";
-
-import * as Builder from "./DslQueryBuilder";
-
-export default {Builder, Query}
+export * from './Query'
+export * from './DslQueryBuilder'

@@ -1,11 +1,11 @@
 {
   "name": "dslquery",
-  "version": "1.0.7",
+  "version": "1.0.12",
   "description": "",
   "main": "./dist/library.js",
   "scripts": {
     "test": "tests",
-    "build": "webpack"
+    "build": "rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,11 @@
     "dsl",
     "query"
   ],
+  "type": "module",
   "dependencies": {
     "jest": "29.5.0",
     "lodash": "^4.17.21",
+    "rollup": "^3.26.0",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
