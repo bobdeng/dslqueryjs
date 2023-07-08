@@ -4,7 +4,7 @@
   "description": "",
   "main": "./dist/library.js",
   "scripts": {
-    "test": "tests",
+    "test": "vitest tests/*.test.js",
     "build": "rollup -c rollup.config.js"
   },
   "repository": {
@@ -17,6 +17,7 @@
   ],
   "type": "module",
   "dependencies": {
+    "@esbuild/darwin-arm64": "^0.18.11",
     "rollup": "^3.26.0",
     "vitest": "^0.32.4",
     "webpack": "^5.88.1",
