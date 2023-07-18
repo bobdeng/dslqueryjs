@@ -1,6 +1,6 @@
 {
   "name": "dslquery",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "./dist/library.js",
   "scripts": {
