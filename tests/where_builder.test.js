@@ -60,10 +60,10 @@ describe('dsl builder test', function () {
         expect(notnull("name").build()).toEqual("(name notnull)")
     });
     it('should return NotIn', function () {
-        expect(notIn("name", ["1", "2"]).build()).toEqual("(name notin [\"1\",\"2\"])")
+        expect(notIn("name", ["1", "2"]).build()).toEqual("(name notin %5B\"1\",\"2\"%5D)")
     });
     it('should return In', function () {
-        expect(isIn("name", ["1", "2"]).build()).toEqual("(name in [\"1\",\"2\"])")
+        expect(isIn("name", ["1", "2"]).build()).toEqual("(name in %5B\"1\",\"2\"%5D)")
     });
     it('should return Between', function () {
         expect(between("name", "1", "2").build()).toEqual("(name between 1,2)")

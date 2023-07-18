@@ -45,12 +45,19 @@ export function endsWith(name, value) {
     return new SingleExpression("endswith", name, encodeValue(value));
 }
 
+function getArray(value) {
+    let result = JSON.stringify(value);
+    result = result.replaceAll('[', "%5B");
+    result = result.replaceAll(']', "%5D");
+    return result;
+}
+
 export function notIn(name, value) {
-    return new SingleExpression("notin", name, JSON.stringify(value));
+    return new SingleExpression("notin", name, getArray(value));
 }
 
 export function isIn(name, value) {
-    return new SingleExpression("in", name, JSON.stringify(value));
+    return new SingleExpression("in", name, getArray(value));
 }
 
 export function between(name, valueStart, valueEnd) {
