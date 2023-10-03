@@ -14,46 +14,46 @@ function encodeValue(value) {
 }
 
 export function equals(name, value) {
-    return new SingleExpression("equals", name, encodeValue(value));
+    return new SingleExpression("eq", name, encodeValue(value));
 }
 
 export function notEquals(name, value) {
-    return new SingleExpression("notequals", name, encodeValue(value));
+    return new SingleExpression("ne", name, encodeValue(value));
 }
 
 export function greaterThan(name, value) {
-    return new SingleExpression("greaterthan", name, encodeValue(value));
+    return new SingleExpression("gt", name, encodeValue(value));
 }
 
 export function greaterThanOrEquals(name, value) {
-    return new SingleExpression("greaterthanorequals", name, encodeValue(value));
+    return new SingleExpression("ge", name, encodeValue(value));
 }
 
 export function lessThan(name, value) {
-    return new SingleExpression("lessthan", name, encodeValue(value));
+    return new SingleExpression("lt", name, encodeValue(value));
 }
 
 export function lessThanOrEquals(name, value) {
-    return new SingleExpression("lessthanorequals", name, encodeValue(value));
+    return new SingleExpression("le", name, encodeValue(value));
 }
 
 export function startsWith(name, value) {
-    return new SingleExpression("startswith", name, encodeValue(value));
+    return new SingleExpression("sw", name, encodeValue(value));
 }
 
 export function endsWith(name, value) {
-    return new SingleExpression("endswith", name, encodeValue(value));
+    return new SingleExpression("ew", name, encodeValue(value));
 }
 
 function getArray(value) {
     let result = JSON.stringify(value);
-    result = result.replaceAll('[', "%5B");
-    result = result.replaceAll(']', "%5D");
+    result = result.replace('[', "%5B");
+    result = result.replace(']', "%5D");
     return result;
 }
 
 export function notIn(name, value) {
-    return new SingleExpression("notin", name, getArray(value));
+    return new SingleExpression("ni", name, getArray(value));
 }
 
 export function isIn(name, value) {
@@ -61,19 +61,19 @@ export function isIn(name, value) {
 }
 
 export function between(name, valueStart, valueEnd) {
-    return new SingleExpression("between", name, `${encodeValue(valueStart)},${encodeValue(valueEnd)}`);
+    return new SingleExpression("bt", name, `${encodeValue(valueStart)},${encodeValue(valueEnd)}`);
 }
 
 export function contains(name, value) {
-    return new SingleExpression("contains", name, encodeValue(value));
+    return new SingleExpression("ct", name, encodeValue(value));
 }
 
 export function isnull(name) {
-    return new SingleExpression("isnull", name);
+    return new SingleExpression("isn", name);
 }
 
 export function notnull(name) {
-    return new SingleExpression("notnull", name);
+    return new SingleExpression("inn", name);
 }
 
 export function desc(name) {
@@ -84,19 +84,19 @@ export function asc(name) {
     return new Sort().asc(name);
 }
 
-class SingleExpression {
+export class SingleExpression {
     _operator;
     _name;
     _value;
 
-    constructor(operator, name, value) {
+    constructor(operator, name, value: any = null) {
         this._operator = operator;
         this._name = name;
         this._value = value;
     }
 
     build() {
-        if (this._operator === "isnull" || this._operator === "notnull") {
+        if (this._operator === "isn" || this._operator === "inn") {
             return `(${this._name} ${this._operator})`
         }
         return `(${this._name} ${this._operator} ${this._value})`
