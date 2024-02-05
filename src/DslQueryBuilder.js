@@ -8,8 +8,8 @@ export function or(...expressions) {
 
 function encodeValue(value) {
     value = encodeURIComponent(value);
-    value = value.replaceAll('(', "%28");
-    value = value.replaceAll(')', "%29");
+    value = value.replace(/\(/g, "%28");
+    value = value.replace(/\)/g, "%29");
     return value;
 }
 
@@ -89,7 +89,7 @@ export class SingleExpression {
     _name;
     _value;
 
-    constructor(operator, name, value: any = null) {
+    constructor(operator, name, value) {
         this._operator = operator;
         this._name = name;
         this._value = value;

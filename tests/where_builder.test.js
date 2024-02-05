@@ -21,7 +21,7 @@ describe('dsl builder test', function () {
         expect(and(equals("name", "123")).build()).toEqual("(and(name eq 123))")
     });
     it('should build with equals contains special char', function () {
-        expect(and(equals("name", "123()")).build()).toEqual("(and(name eq 123%28%29))")
+        expect(and(equals("name", "123(())")).build()).toEqual("(and(name eq 123%28%28%29%29))")
     });
     it('should build with 2 equals', function () {
         expect(and(equals("name", "123"), equals("age", 12)).build()).toEqual("(and(name eq 123)(age eq 12))")
