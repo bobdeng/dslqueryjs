@@ -68,8 +68,8 @@ function or(...expressions) {
 
 function encodeValue(value) {
     value = encodeURIComponent(value);
-    value = value.replaceAll('(', "%28");
-    value = value.replaceAll(')', "%29");
+    value = value.replace(/\(/g, "%28");
+    value = value.replace(/\)/g, "%29");
     return value;
 }
 

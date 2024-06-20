@@ -1,0 +1,18 @@
+declare function and(...args: any[]): any;
+declare function or(...args: any[]): any;
+declare function equals(name:string,value:any): any;
+declare function notEquals(name:string,value:any): any;
+declare function startsWith(name:string,value:any): any;
+declare function notIn(name:string,value:any): any;
+declare function isIn(name:string,value:any): any;
+declare function between(name:string,value1:any,value2:any): any;
+declare function endsWith(name:string,value:any): any;
+declare function notnull(name:string): any;
+declare function isnull(name:string): any;
+declare function contains(name:string,value:any): any;
+declare function greaterThan(name:string,value:any): any;
+declare function lessThan(name:string,value:any): any;
+declare function greaterThanOrEquals(name:string,value:any): any;
+declare function lessThanOrEquals(name:string,value:any): any;
+declare function desc(name:string): any;
+declare function asc(name:string): any;

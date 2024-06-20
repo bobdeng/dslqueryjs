@@ -20,7 +20,7 @@ describe('query builder', function () {
 
     it('set query filter', function () {
         let query = new Query().withFilter(and(equals("name", "bob")))
-        expect(query.filter).toEqual("(and(name equals bob))")
+        expect(query.filter).toEqual("(and(name eq bob))")
     });
 
     it('should set skip when go to page', function () {

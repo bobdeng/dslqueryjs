@@ -1,6 +1,6 @@
 {
   "name": "dslquery",
-  "version": "4.5.4",
+"version": "4.5.6",
   "description": "",
   "main": "./dist/library.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "dsl",
     "query"
   ],
+  "types": "./src/dslquery.d.ts",
   "type": "module",
   "dependencies": {
     "@esbuild/darwin-arm64": "^0.18.11",
