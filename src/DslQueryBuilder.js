@@ -46,7 +46,7 @@ export function endsWith(name, value) {
 }
 
 function getArray(value) {
-    let result = JSON.stringify(value);
+    let result = JSON.stringify(value.map(it => encodeValue(it)));
     result = result.replace('[', "%5B");
     result = result.replace(']', "%5D");
     return result;

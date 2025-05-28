@@ -65,6 +65,9 @@ describe('dsl builder test', function () {
     it('should return In', function () {
         expect(isIn("name", ["1", "2"]).build()).toEqual("(name in %5B\"1\",\"2\"%5D)")
     });
+    it('should return In a+b', function () {
+        expect(isIn("name", ["a+b", "2"]).build()).toEqual("(name in %5B\"a%2Bb\",\"2\"%5D)")
+    });
     it('should return Between', function () {
         expect(between("name", "1", "2").build()).toEqual("(name bt 1,2)")
     });
