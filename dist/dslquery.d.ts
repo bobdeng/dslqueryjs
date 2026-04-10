@@ -51,11 +51,15 @@ export function lessThanOrEquals(name: string, value: any): Expression;
 export function startsWith(name: string, value: any): Expression;
 export function endsWith(name: string, value: any): Expression;
 export function contains(name: string, value: any): Expression;
+export function notStartsWith(name: string, value: any): Expression;
+export function notEndsWith(name: string, value: any): Expression;
+export function notContains(name: string, value: any): Expression;
 
 // Collection operators
 export function isIn(name: string, value: any[]): Expression;
 export function notIn(name: string, value: any[]): Expression;
 export function between(name: string, valueStart: any, valueEnd: any): Expression;
+export function notBetween(name: string, valueStart: any, valueEnd: any): Expression;
 
 // Null check operators
 export function isnull(name: string): Expression;

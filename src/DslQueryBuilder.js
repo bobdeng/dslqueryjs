@@ -68,6 +68,22 @@ export function contains(name, value) {
     return new SingleExpression("ct", name, encodeValue(value));
 }
 
+export function notContains(name, value) {
+    return new SingleExpression("nct", name, encodeValue(value));
+}
+
+export function notStartsWith(name, value) {
+    return new SingleExpression("nsw", name, encodeValue(value));
+}
+
+export function notEndsWith(name, value) {
+    return new SingleExpression("new", name, encodeValue(value));
+}
+
+export function notBetween(name, valueStart, valueEnd) {
+    return new SingleExpression("nbt", name, `${encodeValue(valueStart)},${encodeValue(valueEnd)}`);
+}
+
 export function isnull(name) {
     return new SingleExpression("isn", name);
 }

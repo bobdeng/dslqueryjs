@@ -128,6 +128,22 @@ function contains(name, value) {
     return new SingleExpression("ct", name, encodeValue(value));
 }
 
+function notContains(name, value) {
+    return new SingleExpression("nct", name, encodeValue(value));
+}
+
+function notStartsWith(name, value) {
+    return new SingleExpression("nsw", name, encodeValue(value));
+}
+
+function notEndsWith(name, value) {
+    return new SingleExpression("new", name, encodeValue(value));
+}
+
+function notBetween(name, valueStart, valueEnd) {
+    return new SingleExpression("nbt", name, `${encodeValue(valueStart)},${encodeValue(valueEnd)}`);
+}
+
 function isnull(name) {
     return new SingleExpression("isn", name);
 }
@@ -273,4 +289,4 @@ function buildFilterExpression(rules, form, ...extraConditions) {
   return and(...conditions, ...extraConditions);
 }
 
-export { Query, SingleExpression, and, asc, between, buildFilter, buildFilterExpression, contains, desc, endsWith, equals, greaterThan, greaterThanOrEquals, isIn, isnull, lessThan, lessThanOrEquals, notEquals, notIn, notnull, or, startsWith };
+export { Query, SingleExpression, and, asc, between, buildFilter, buildFilterExpression, contains, desc, endsWith, equals, greaterThan, greaterThanOrEquals, isIn, isnull, lessThan, lessThanOrEquals, notBetween, notContains, notEndsWith, notEquals, notIn, notStartsWith, notnull, or, startsWith };

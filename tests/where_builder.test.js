@@ -10,8 +10,12 @@ import {
     isnull,
     lessThan,
     lessThanOrEquals,
+    notBetween,
+    notContains,
+    notEndsWith,
     notEquals,
     notIn,
+    notStartsWith,
     notnull,
     or,
     startsWith
@@ -96,6 +100,18 @@ describe('dsl builder test', function () {
     });
     it('should return Between', function () {
         expect(between("name", "1", "2").build()).toEqual("(name bt 1,2)")
+    });
+    it('should return notContains', function () {
+        expect(notContains("name", "123").build()).toEqual("(name nct 123)")
+    });
+    it('should return notStartsWith', function () {
+        expect(notStartsWith("name", "123").build()).toEqual("(name nsw 123)")
+    });
+    it('should return notEndsWith', function () {
+        expect(notEndsWith("name", "123").build()).toEqual("(name new 123)")
+    });
+    it('should return notBetween', function () {
+        expect(notBetween("name", "1", "2").build()).toEqual("(name nbt 1,2)")
     });
 
 });
