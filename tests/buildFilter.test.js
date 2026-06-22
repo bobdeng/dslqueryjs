@@ -174,6 +174,34 @@ describe('buildFilter test', function () {
         const form = {name: "test", exactMatch: true};
         expect(buildFilter(rules, form)).toEqual("(and(name eq test))");
     });
+
+    it('should filter out undefined returned by rule function', function () {
+        const rules = {
+            name: (value) => equals("name", value),
+            age: (value) => {
+                if (value > 18) {
+                    return greaterThan("age", value);
+                }
+                return undefined;
+            }
+        };
+        const form = {name: "test", age: "16"};
+        expect(buildFilter(rules, form)).toEqual("(and(name eq test))");
+    });
+
+    it('should still include rule result when rule does not return undefined', function () {
+        const rules = {
+            name: (value) => equals("name", value),
+            age: (value) => {
+                if (value > 18) {
+                    return greaterThan("age", value);
+                }
+                return undefined;
+            }
+        };
+        const form = {name: "test", age: "20"};
+        expect(buildFilter(rules, form)).toEqual("(and(name eq test)(age gt 20))");
+    });
 });
 
 describe('buildFilterExpression test', function () {
@@ -204,5 +232,34 @@ describe('buildFilterExpression test', function () {
         const expression = buildFilterExpression(rules, form, extraCondition);
         expect(expression).toBeDefined();
         expect(expression.build()).toEqual("(and(type eq user))");
+    });
+
+    it('should filter out undefined returned by rule in expression', function () {
+        const rules = {
+            name: (value) => equals("name", value),
+            age: (value) => {
+                if (value > 18) {
+                    return greaterThan("age", value);
+                }
+                return undefined;
+            }
+        };
+        const form = {name: "test", age: "16"};
+        const expression = buildFilterExpression(rules, form);
+        expect(expression).toBeDefined();
+        expect(expression.build()).toEqual("(and(name eq test))");
+    });
+
+    it('should return undefined when all rules return undefined', function () {
+        const rules = {
+            age: (value) => {
+                if (value > 18) {
+                    return greaterThan("age", value);
+                }
+                return undefined;
+            }
+        };
+        const form = {age: "16"};
+        expect(buildFilterExpression(rules, form)).toBeUndefined();
     });
 });
