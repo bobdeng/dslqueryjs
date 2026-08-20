@@ -152,6 +152,14 @@ function notnull(name) {
     return new SingleExpression("inn", name);
 }
 
+function empty(name) {
+    return new SingleExpression("emp", name);
+}
+
+function notEmpty(name) {
+    return new SingleExpression("nem", name);
+}
+
 function desc(name) {
     return new Sort().desc(name);
 }
@@ -172,7 +180,7 @@ class SingleExpression {
     }
 
     build() {
-        if (this._operator === "isn" || this._operator === "inn") {
+        if (this._operator === "isn" || this._operator === "inn" || this._operator === "emp" || this._operator === "nem") {
             return `(${this._name} ${this._operator})`
         }
         return `(${this._name} ${this._operator} ${this._value})`
@@ -290,4 +298,4 @@ function buildFilterExpression(rules, form, ...extraConditions) {
   return and(...conditions, ...extraConditions);
 }
 
-export { Query, SingleExpression, and, asc, between, buildFilter, buildFilterExpression, contains, desc, endsWith, equals, greaterThan, greaterThanOrEquals, isIn, isnull, lessThan, lessThanOrEquals, notBetween, notContains, notEndsWith, notEquals, notIn, notStartsWith, notnull, or, startsWith };
+export { Query, SingleExpression, and, asc, between, buildFilter, buildFilterExpression, contains, desc, empty, endsWith, equals, greaterThan, greaterThanOrEquals, isIn, isnull, lessThan, lessThanOrEquals, notBetween, notContains, notEmpty, notEndsWith, notEquals, notIn, notStartsWith, notnull, or, startsWith };

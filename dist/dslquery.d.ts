@@ -64,6 +64,8 @@ export function notBetween(name: string, valueStart: any, valueEnd: any): Expres
 // Null check operators
 export function isnull(name: string): Expression;
 export function notnull(name: string): Expression;
+export function empty(name: string): Expression;
+export function notEmpty(name: string): Expression;
 
 // Sort operators
 export function desc(name: string): SortBuilder;
