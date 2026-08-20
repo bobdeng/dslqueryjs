@@ -2,6 +2,7 @@ import {
     and,
     between,
     contains,
+    empty,
     endsWith,
     equals,
     greaterThan,
@@ -12,6 +13,7 @@ import {
     lessThanOrEquals,
     notBetween,
     notContains,
+    notEmpty,
     notEndsWith,
     notEquals,
     notIn,
@@ -88,6 +90,12 @@ describe('dsl builder test', function () {
     });
     it('should return notnull', function () {
         expect(notnull("name").build()).toEqual("(name inn)")
+    });
+    it('should return empty', function () {
+        expect(empty("name").build()).toEqual("(name emp)")
+    });
+    it('should return notEmpty', function () {
+        expect(notEmpty("name").build()).toEqual("(name nem)")
     });
     it('should return NotIn', function () {
         expect(notIn("name", ["1", "2"]).build()).toEqual("(name ni %5B\"1\",\"2\"%5D)")

@@ -102,10 +102,12 @@ between("age", 18, 65)                       // (age bt 18,65)
 #### 空值检查
 
 ```javascript
-import { isnull, notnull } from 'dslquery';
+import { isnull, notnull, empty, notEmpty } from 'dslquery';
 
 isnull("deletedAt")     // (deletedAt isn)
 notnull("email")        // (email inn)
+empty("name")           // (name emp) 等于空字符串
+notEmpty("name")        // (name nem) 不等于空字符串
 ```
 
 #### 逻辑组合

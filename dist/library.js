@@ -267,7 +267,8 @@ function buildFilterExpression(rules, form, ...extraConditions) {
     .map(key => {
       return rules[key](form[key], form);
     })
-    .flat();
+    .flat()
+    .filter(condition => condition !== undefined);
 
   if (rules.default) {
     const defaultCondition = rules.default(form);

@@ -92,6 +92,14 @@ export function notnull(name) {
     return new SingleExpression("inn", name);
 }
 
+export function empty(name) {
+    return new SingleExpression("emp", name);
+}
+
+export function notEmpty(name) {
+    return new SingleExpression("nem", name);
+}
+
 export function desc(name) {
     return new Sort().desc(name);
 }
@@ -112,7 +120,7 @@ export class SingleExpression {
     }
 
     build() {
-        if (this._operator === "isn" || this._operator === "inn") {
+        if (this._operator === "isn" || this._operator === "inn" || this._operator === "emp" || this._operator === "nem") {
             return `(${this._name} ${this._operator})`
         }
         return `(${this._name} ${this._operator} ${this._value})`
